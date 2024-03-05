@@ -1,5 +1,5 @@
 #include "AnimToTextureTool//AnimTextureItem.h"
-#define LOCTEXT_NAMESPACE "FSlatePluginModule"
+// #define LOCTEXT_NAMESPACE "FSlatePluginModule"
 
 void SAnimTextureItem::Construct(const FArguments& InArgs)
 {

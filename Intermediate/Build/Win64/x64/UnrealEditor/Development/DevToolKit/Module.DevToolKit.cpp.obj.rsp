@@ -1,11 +1,11 @@
-"E:\Workspace\UEProject\FortniteGame5.3\Plugins\UnrealSwissKnife\Intermediate\Build\Win64\x64\UnrealEditor\Development\DevToolKit\Module.DevToolKit.cpp"
-/FI"E:\Workspace\UEProject\FortniteGame5.3\Intermediate\Build\Win64\x64\FortniteEditor\Development\Engine\SharedPCH.Engine.Cpp17.InclOrderUnreal5_0.h"
-/FI"E:\Workspace\UEProject\FortniteGame5.3\Plugins\UnrealSwissKnife\Intermediate\Build\Win64\x64\UnrealEditor\Development\DevToolKit\Definitions.DevToolKit.h"
-/Yu"E:\Workspace\UEProject\FortniteGame5.3\Intermediate\Build\Win64\x64\FortniteEditor\Development\Engine\SharedPCH.Engine.Cpp17.InclOrderUnreal5_0.h"
-/Fp"E:\Workspace\UEProject\FortniteGame5.3\Intermediate\Build\Win64\x64\FortniteEditor\Development\Engine\SharedPCH.Engine.Cpp17.InclOrderUnreal5_0.h.pch"
-/Fo"E:\Workspace\UEProject\FortniteGame5.3\Plugins\UnrealSwissKnife\Intermediate\Build\Win64\x64\UnrealEditor\Development\DevToolKit\Module.DevToolKit.cpp.obj"
-/sourceDependencies "E:\Workspace\UEProject\FortniteGame5.3\Plugins\UnrealSwissKnife\Intermediate\Build\Win64\x64\UnrealEditor\Development\DevToolKit\Module.DevToolKit.cpp.dep.json"
-@"E:\Workspace\UEProject\FortniteGame5.3\Plugins\UnrealSwissKnife\Intermediate\Build\Win64\x64\UnrealEditor\Development\DevToolKit\DevToolKit.Shared.rsp"
+"E:\UnrealProject\ContentExamples53\Plugins\UnrealSwissKnife\Intermediate\Build\Win64\x64\UnrealEditor\Development\DevToolKit\Module.DevToolKit.cpp"
+/FI"E:\UnrealProject\ContentExamples53\Intermediate\Build\Win64\x64\ContentExamples53Editor\Development\Engine\SharedPCH.Engine.Cpp20.InclOrderUnreal5_0.h"
+/FI"E:\UnrealProject\ContentExamples53\Plugins\UnrealSwissKnife\Intermediate\Build\Win64\x64\UnrealEditor\Development\DevToolKit\Definitions.DevToolKit.h"
+/Yu"E:\UnrealProject\ContentExamples53\Intermediate\Build\Win64\x64\ContentExamples53Editor\Development\Engine\SharedPCH.Engine.Cpp20.InclOrderUnreal5_0.h"
+/Fp"E:\UnrealProject\ContentExamples53\Intermediate\Build\Win64\x64\ContentExamples53Editor\Development\Engine\SharedPCH.Engine.Cpp20.InclOrderUnreal5_0.h.pch"
+/Fo"E:\UnrealProject\ContentExamples53\Plugins\UnrealSwissKnife\Intermediate\Build\Win64\x64\UnrealEditor\Development\DevToolKit\Module.DevToolKit.cpp.obj"
+/sourceDependencies "E:\UnrealProject\ContentExamples53\Plugins\UnrealSwissKnife\Intermediate\Build\Win64\x64\UnrealEditor\Development\DevToolKit\Module.DevToolKit.cpp.dep.json"
+@"E:\UnrealProject\ContentExamples53\Plugins\UnrealSwissKnife\Intermediate\Build\Win64\x64\UnrealEditor\Development\DevToolKit\DevToolKit.Shared.rsp"
 /Zc:inline
 /nologo
 /Oi
@@ -15,7 +15,9 @@
 /Gy
 /utf-8
 /wd4819
-/Zc:hiddenFriend
+/DSAL_NO_ATTRIBUTE_DECLARATIONS=1
+/permissive-
+/Zc:strictStrings-
 /Zc:__cplusplus
 /D_CRT_STDIO_LEGACY_WIDE_SPECIFIERS=1
 /D_SILENCE_STDEXT_HASH_DEPRECATION_WARNINGS=1
@@ -43,4 +45,6 @@
 /TP
 /GR-
 /W4
-/std:c++17
+/std:c++20
+/Zc:preprocessor
+/wd5054

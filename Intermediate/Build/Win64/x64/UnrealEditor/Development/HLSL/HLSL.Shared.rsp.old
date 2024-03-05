@@ -1,5 +1,5 @@
 /I "."
-/I "E:\Workspace\UEProject\Aura\Plugins\UnrealSwissKnife\Source\HLSL\Private"
+/I "E:\Workspace\UEProject\FortniteGame5.3\Plugins\UnrealSwissKnife\Source\HLSL\Private"
 /I "..\Intermediate\Build\Win64\UnrealEditor\Inc\CoreUObject\UHT"
 /I "Runtime\CoreUObject\Public"
 /I "Runtime"
@@ -275,8 +275,8 @@
 /I "..\Intermediate\Build\Win64\UnrealEditor\Inc\WidgetRegistration\UHT"
 /I "Developer\WidgetRegistration\Public"
 /I "Runtime\Windows"
-/I "E:\Workspace\UEProject\Aura\Plugins\UnrealSwissKnife\Source"
-/I "E:\Workspace\UEProject\Aura\Plugins\UnrealSwissKnife\Source\HLSL\Public"
+/I "E:\Workspace\UEProject\FortniteGame5.3\Plugins\UnrealSwissKnife\Source"
+/I "E:\Workspace\UEProject\FortniteGame5.3\Plugins\UnrealSwissKnife\Source\HLSL\Public"
 /external:W0
 /external:I "ThirdParty\mimalloc\include"
 /external:I "ThirdParty\LibTiff\Source\Win64"

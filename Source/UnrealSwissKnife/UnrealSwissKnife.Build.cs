@@ -48,6 +48,7 @@ public class UnrealSwissKnife : ModuleRules
                 "MessageLog",
                 "ToolWidgets",
                 "PluginUtils", 
+                "PropertyEditor"
             }
         );
     }

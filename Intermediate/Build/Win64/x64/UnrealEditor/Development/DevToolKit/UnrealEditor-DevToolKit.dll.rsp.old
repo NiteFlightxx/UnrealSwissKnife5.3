@@ -35,9 +35,9 @@
 /NODEFAULTLIB:"LIBCPD"
 /FUNCTIONPADMIN:6
 /NATVIS:"..\Intermediate\Build\Win64\x64\UnrealEditor\Development\RenderCore\RenderCore.natvis"
-"E:\Workspace\UEProject\Aura\Intermediate\Build\Win64\x64\AuraEditor\Development\Engine\SharedPCH.Engine.Cpp17.InclOrderUnreal5_0.h.obj"
-"E:\Workspace\UEProject\Aura\Plugins\UnrealSwissKnife\Intermediate\Build\Win64\x64\UnrealEditor\Development\DevToolKit\Module.DevToolKit.cpp.obj"
-"E:\Workspace\UEProject\Aura\Plugins\UnrealSwissKnife\Intermediate\Build\Win64\x64\UnrealEditor\Development\DevToolKit\Default.rc2.res"
+"E:\Workspace\UEProject\FortniteGame5.3\Intermediate\Build\Win64\x64\FortniteEditor\Development\Engine\SharedPCH.Engine.Cpp17.InclOrderUnreal5_0.h.obj"
+"E:\Workspace\UEProject\FortniteGame5.3\Plugins\UnrealSwissKnife\Intermediate\Build\Win64\x64\UnrealEditor\Development\DevToolKit\Module.DevToolKit.cpp.obj"
+"E:\Workspace\UEProject\FortniteGame5.3\Plugins\UnrealSwissKnife\Intermediate\Build\Win64\x64\UnrealEditor\Development\DevToolKit\Default.rc2.res"
 "..\Intermediate\Build\Win64\x64\UnrealEditor\Development\CoreUObject\UnrealEditor-CoreUObject.lib"
 "..\Intermediate\Build\Win64\x64\UnrealEditor\Development\Engine\UnrealEditor-Engine.lib"
 "..\Intermediate\Build\Win64\x64\UnrealEditor\Development\Slate\UnrealEditor-Slate.lib"
@@ -70,7 +70,7 @@
 "synchronization.lib"
 "dwmapi.lib"
 "imm32.lib"
-/OUT:"E:\Workspace\UEProject\Aura\Plugins\UnrealSwissKnife\Binaries\Win64\UnrealEditor-DevToolKit.dll"
-/IMPLIB:"E:\Workspace\UEProject\Aura\Plugins\UnrealSwissKnife\Intermediate\Build\Win64\x64\UnrealEditor\Development\DevToolKit\UnrealEditor-DevToolKit.sup.lib"
-/PDB:"E:\Workspace\UEProject\Aura\Plugins\UnrealSwissKnife\Binaries\Win64\UnrealEditor-DevToolKit.pdb"
+/OUT:"E:\Workspace\UEProject\FortniteGame5.3\Plugins\UnrealSwissKnife\Binaries\Win64\UnrealEditor-DevToolKit.dll"
+/IMPLIB:"E:\Workspace\UEProject\FortniteGame5.3\Plugins\UnrealSwissKnife\Intermediate\Build\Win64\x64\UnrealEditor\Development\DevToolKit\UnrealEditor-DevToolKit.sup.lib"
+/PDB:"E:\Workspace\UEProject\FortniteGame5.3\Plugins\UnrealSwissKnife\Binaries\Win64\UnrealEditor-DevToolKit.pdb"
 /ignore:4078

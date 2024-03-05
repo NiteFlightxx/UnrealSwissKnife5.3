@@ -1,11 +1,11 @@
-"E:\Workspace\UEProject\Aura\Plugins\UnrealSwissKnife\Intermediate\Build\Win64\x64\UnrealEditor\Development\MiniMap\Module.MiniMap.cpp"
-/FI"E:\Workspace\UEProject\Aura\Intermediate\Build\Win64\x64\AuraEditor\Development\UnrealEd\SharedPCH.UnrealEd.Cpp17.InclOrderUnreal5_0.h"
-/FI"E:\Workspace\UEProject\Aura\Plugins\UnrealSwissKnife\Intermediate\Build\Win64\x64\UnrealEditor\Development\MiniMap\Definitions.MiniMap.h"
-/Yu"E:\Workspace\UEProject\Aura\Intermediate\Build\Win64\x64\AuraEditor\Development\UnrealEd\SharedPCH.UnrealEd.Cpp17.InclOrderUnreal5_0.h"
-/Fp"E:\Workspace\UEProject\Aura\Intermediate\Build\Win64\x64\AuraEditor\Development\UnrealEd\SharedPCH.UnrealEd.Cpp17.InclOrderUnreal5_0.h.pch"
-/Fo"E:\Workspace\UEProject\Aura\Plugins\UnrealSwissKnife\Intermediate\Build\Win64\x64\UnrealEditor\Development\MiniMap\Module.MiniMap.cpp.obj"
-/sourceDependencies "E:\Workspace\UEProject\Aura\Plugins\UnrealSwissKnife\Intermediate\Build\Win64\x64\UnrealEditor\Development\MiniMap\Module.MiniMap.cpp.dep.json"
-@"E:\Workspace\UEProject\Aura\Plugins\UnrealSwissKnife\Intermediate\Build\Win64\x64\UnrealEditor\Development\MiniMap\MiniMap.Shared.rsp"
+"E:\Workspace\UEProject\FortniteGame5.3\Plugins\UnrealSwissKnife\Intermediate\Build\Win64\x64\UnrealEditor\Development\MiniMap\Module.MiniMap.cpp"
+/FI"E:\Workspace\UEProject\FortniteGame5.3\Intermediate\Build\Win64\x64\FortniteEditor\Development\UnrealEd\SharedPCH.UnrealEd.Cpp17.InclOrderUnreal5_0.h"
+/FI"E:\Workspace\UEProject\FortniteGame5.3\Plugins\UnrealSwissKnife\Intermediate\Build\Win64\x64\UnrealEditor\Development\MiniMap\Definitions.MiniMap.h"
+/Yu"E:\Workspace\UEProject\FortniteGame5.3\Intermediate\Build\Win64\x64\FortniteEditor\Development\UnrealEd\SharedPCH.UnrealEd.Cpp17.InclOrderUnreal5_0.h"
+/Fp"E:\Workspace\UEProject\FortniteGame5.3\Intermediate\Build\Win64\x64\FortniteEditor\Development\UnrealEd\SharedPCH.UnrealEd.Cpp17.InclOrderUnreal5_0.h.pch"
+/Fo"E:\Workspace\UEProject\FortniteGame5.3\Plugins\UnrealSwissKnife\Intermediate\Build\Win64\x64\UnrealEditor\Development\MiniMap\Module.MiniMap.cpp.obj"
+/sourceDependencies "E:\Workspace\UEProject\FortniteGame5.3\Plugins\UnrealSwissKnife\Intermediate\Build\Win64\x64\UnrealEditor\Development\MiniMap\Module.MiniMap.cpp.dep.json"
+@"E:\Workspace\UEProject\FortniteGame5.3\Plugins\UnrealSwissKnife\Intermediate\Build\Win64\x64\UnrealEditor\Development\MiniMap\MiniMap.Shared.rsp"
 /Zc:inline
 /nologo
 /Oi
