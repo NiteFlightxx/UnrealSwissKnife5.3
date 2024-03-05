@@ -1,0 +1,19 @@
+{
+	"RemapUnityFiles": 
+	{
+		"Module.MiniMap.cpp.obj": [
+			"MiniMap.init.gen.cpp.obj",
+			"MiniMapBase.gen.cpp.obj",
+			"MiniMapComponent.gen.cpp.obj",
+			"MiniMapItemIcon.gen.cpp.obj",
+			"MiniMapSubsystem.gen.cpp.obj",
+			"MiniMap.cpp.obj",
+			"MiniMapBase.cpp.obj",
+			"MiniMapComponent.cpp.obj",
+			"MiniMapDetailsCustomization.cpp.obj",
+			"MiniMapItemIcon.cpp.obj",
+			"MiniMapSetBounds.cpp.obj",
+			"MiniMapSubsystem.cpp.obj"
+		]
+	}
+}

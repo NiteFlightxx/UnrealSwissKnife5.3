@@ -1,0 +1,12 @@
+/NOLOGO
+/errorReport:prompt
+/MACHINE:x64
+/SUBSYSTEM:WINDOWS
+/DEF
+/NAME:"UnrealEditor-HLSL.dll"
+/IGNORE:4221
+/NODEFAULTLIB
+"E:\Workspace\UEProject\Aura\Intermediate\Build\Win64\x64\AuraEditor\Development\Engine\SharedPCH.Engine.Cpp17.InclOrderUnreal5_0.h.obj"
+"E:\Workspace\UEProject\Aura\Plugins\UnrealSwissKnife\Intermediate\Build\Win64\x64\UnrealEditor\Development\HLSL\Module.HLSL.cpp.obj"
+"E:\Workspace\UEProject\Aura\Plugins\UnrealSwissKnife\Intermediate\Build\Win64\x64\UnrealEditor\Development\HLSL\Default.rc2.res"
+/OUT:"E:\Workspace\UEProject\Aura\Plugins\UnrealSwissKnife\Intermediate\Build\Win64\x64\UnrealEditor\Development\HLSL\UnrealEditor-HLSL.lib"

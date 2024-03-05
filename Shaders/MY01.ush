@@ -1,0 +1,19 @@
+//  #include "/Project/ContentExamples/MY01.ush"
+
+
+
+float3 rayStep=viewDir * -1;
+float4 InputTex=Texture2DSample(texObject,texObjectSampler,uv);
+
+for(int i =0 ; i<25 ;i++)
+{
+	if(InputTex.r>0.1 && InputTex.g>0.1 &&I nputTex.b>0.1)
+	{
+		return float3(i,0,0);
+	}
+	uv+=rayStep*0.15;
+	
+	inputTex=Texture2DSample(texObject,texObjectSample,uv.xy)
+}	
+
+return InputTex;

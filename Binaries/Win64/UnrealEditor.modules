@@ -1,0 +1,10 @@
+{
+	"BuildId": "27405482",
+	"Modules": 
+	{
+		"DevToolKit": "UnrealEditor-DevToolKit.dll",
+		"HLSL": "UnrealEditor-HLSL.dll",
+		"MiniMap": "UnrealEditor-MiniMap.dll",
+		"UnrealSwissKnife": "UnrealEditor-UnrealSwissKnife.dll"
+	}
+}

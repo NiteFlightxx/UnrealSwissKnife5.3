@@ -1,0 +1,18 @@
+//  #include "/Project/ContentExamples/RayMarch.ush"
+//  return 0;
+float3 RayStep=viewDir *Spacing* -1;
+float4 InputTex=Texture2DSample(texObject,texObjectSampler,uv);
+float3 Color=BaseColor;
+for(int i=0;i<Tier;i++)
+{
+	if(InputTex.r>0.1 && InputTex.g>0.1 && InputTex.b>0.1)
+	{
+		return float3(i*Color);
+	}
+
+	uv+=RayStep;
+
+	InputTex=Texture2DSample(texObject,texObjectSampler,uv.xy);
+}
+
+return InputTex;

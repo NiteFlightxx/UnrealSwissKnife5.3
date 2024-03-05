@@ -1,0 +1,48 @@
+uv=uv*2-1;
+
+float3 result=float3(0,0,0);
+
+float dist =length(uv);
+
+float size=2;
+float petals=6;
+float thickness=0.3;
+float inset=sin(time);
+
+if(dist<=thickness*(size+inset*sin(petals*atan2(uv.y,uv.x))))
+{
+	result=float3(1,1,1);
+
+}
+return result;
+
+/*************************************************************/
+
+// const int iter =12;
+//
+// float2 c=uv*3-float2(2,1.5);
+//
+// float2 z=c;
+//
+// for(int i=0;i<iter;i++)
+// {
+//
+// 	z=float2(z.x*z.x-z.y*z.y,2*z.x*z.y)+c;//sin(c+time);
+//
+// 	if(length(z)>2)
+// 	{
+// 		break;
+// 	}
+// }
+//
+// float mandelbrot=float(i)/float(iter);
+//
+// return mandelbrot;
+
+/*************************************************************/
+// float f=30;
+// float a=0.1;
+//
+// float result=frac(sin(uv.x*f)+sin(uv.y*f))*a;
+//
+// return result;

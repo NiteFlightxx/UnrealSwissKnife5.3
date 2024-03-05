@@ -1,0 +1,12 @@
+/NOLOGO
+/errorReport:prompt
+/MACHINE:x64
+/SUBSYSTEM:WINDOWS
+/DEF
+/NAME:"UnrealEditor-MiniMap.dll"
+/IGNORE:4221
+/NODEFAULTLIB
+"E:\Workspace\UEProject\FortniteGame5.3\Intermediate\Build\Win64\x64\FortniteEditor\Development\UnrealEd\SharedPCH.UnrealEd.Cpp17.InclOrderUnreal5_0.h.obj"
+"E:\Workspace\UEProject\FortniteGame5.3\Plugins\UnrealSwissKnife\Intermediate\Build\Win64\x64\UnrealEditor\Development\MiniMap\Module.MiniMap.cpp.obj"
+"E:\Workspace\UEProject\FortniteGame5.3\Plugins\UnrealSwissKnife\Intermediate\Build\Win64\x64\UnrealEditor\Development\MiniMap\Default.rc2.res"
+/OUT:"E:\Workspace\UEProject\FortniteGame5.3\Plugins\UnrealSwissKnife\Intermediate\Build\Win64\x64\UnrealEditor\Development\MiniMap\UnrealEditor-MiniMap.lib"

@@ -1,0 +1,19 @@
+float3 rayOrigin = ViewDir - worldPos;
+float3 rayStep = ViewDir * 1;
+
+for(int i = 0; i < 256 ; i++ )
+{
+	float dist = length(rayOrigin - sphereCenter)-sphereRadius;
+
+	if(dist<0.01)
+	{
+//		float3 normal=
+		return float3(1,0,0);
+	}
+
+	opacityMask=1;
+	rayOrigin += rayStep;
+}
+
+opacityMask=0;
+return float3(0,0,0);

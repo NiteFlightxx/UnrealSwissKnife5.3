@@ -1,0 +1,10 @@
+
+float t = Time * Speed;
+
+float2 gv=frac(uv*50-0.5)-0.5;
+
+float s = (sin(t - length((uv-0.5) * 2.0) * CircleNumbers ) * 0.4 + 0.5) * 0.6;
+
+float m = smoothstep(s, s - 0.05, length(gv)) + s*2.0;
+
+return float4(float3(s,color.g,color.b) * m,1.0);

@@ -1,0 +1,12 @@
+{
+	"RemapUnityFiles": 
+	{
+		"Module.UnrealSwissKnife.cpp.obj": [
+			"AnimTextureDetails.cpp.obj",
+			"AnimTextureItem.cpp.obj",
+			"UnrealSwissKnife.cpp.obj",
+			"UnrealSwissKnifeCommands.cpp.obj",
+			"UnrealSwissKnifeStyle.cpp.obj"
+		]
+	}
+}
