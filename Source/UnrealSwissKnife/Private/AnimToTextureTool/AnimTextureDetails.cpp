@@ -1,12 +1,14 @@
 // Fill out your copyright notice in the Description page of Project Settings.
 
 
-#include "AnimToTextureTool//AnimTextureDetails.h"
+#include "AnimToTextureTool/AnimTextureDetails.h"
 
+#include "PropertyCustomizationHelpers.h"
+#include "Widgets/Input/SButton.h"
 #include "Widgets/Layout/SExpandableArea.h"
 #include "Widgets/Layout/SScrollBox.h"
 
-#include "Widgets/Input/SButton.h"
+#include "AnimToTexture/Public/AnimToTextureDataAsset.h"
 #define LOCTEXT_NAMESPACE "FSlatePluginModule"
 
 
@@ -169,16 +171,26 @@ void SAnimTextureDetails::Construct(const FArguments& InArgs)
 				 .Text(FText::FromString(TEXT("Bake Data"))) // 按钮文本
 			 ]
 
-			//  + SVerticalBox::Slot()
-			// .HAlign(HAlign_Fill)
-			// .VAlign(VAlign_Fill)
-			// .Padding(2) // 按钮之间的间隔
-			// [
-			// SNew(SPropertyEditorAsset)
-		 //   .ObjectPath(this, &SAnimTextureDetails::GetCurrentAssetPath)
-		 //   .OnSetObject(this, &SAnimTextureDetails::OnAssetSelected)
-			// ]
-			//  
+			 + SVerticalBox::Slot()
+			.HAlign(HAlign_Fill)
+			.VAlign(VAlign_Fill)
+			.Padding(2) // 按钮之间的间隔
+			 [
+			  SNew(SObjectPropertyEntryBox)
+			 .OnObjectChanged(this,&SAnimTextureDetails::OnAssetSelected)
+			 .AllowedClass(UAnimToTextureDataAsset::StaticClass())
+			]
+			
+			 + SVerticalBox::Slot()
+			.HAlign(HAlign_Fill)
+			.VAlign(VAlign_Fill)
+			.Padding(2) // 按钮之间的间隔
+			 [
+			  SNew(SObjectPropertyEntryBox)
+			 .OnObjectChanged(this,&SAnimTextureDetails::OnAssetSelected)
+			 .AllowedClass(USkeletalMesh::StaticClass())
+			]
+			 
 		]
 	]
 

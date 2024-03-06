@@ -6,7 +6,7 @@
 /NAME:"UnrealEditor-UnrealSwissKnife.dll"
 /IGNORE:4221
 /NODEFAULTLIB
-"E:\UnrealProject\ContentExamples53\Intermediate\Build\Win64\x64\ContentExamples53Editor\Development\UnrealEd\SharedPCH.UnrealEd.Cpp20.InclOrderUnreal5_0.h.obj"
-"E:\UnrealProject\ContentExamples53\Plugins\UnrealSwissKnife\Intermediate\Build\Win64\x64\UnrealEditor\Development\UnrealSwissKnife\Module.UnrealSwissKnife.cpp.obj"
-"E:\UnrealProject\ContentExamples53\Plugins\UnrealSwissKnife\Intermediate\Build\Win64\x64\UnrealEditor\Development\UnrealSwissKnife\Default.rc2.res"
-/OUT:"E:\UnrealProject\ContentExamples53\Plugins\UnrealSwissKnife\Intermediate\Build\Win64\x64\UnrealEditor\Development\UnrealSwissKnife\UnrealEditor-UnrealSwissKnife.lib"
+"E:\Workspace\UEProject\FortniteGame5.3\Intermediate\Build\Win64\x64\FortniteEditor\Development\UnrealEd\SharedPCH.UnrealEd.Cpp17.InclOrderUnreal5_0.h.obj"
+"E:\Workspace\UEProject\FortniteGame5.3\Plugins\UnrealSwissKnife\Intermediate\Build\Win64\x64\UnrealEditor\Development\UnrealSwissKnife\Module.UnrealSwissKnife.cpp.obj"
+"E:\Workspace\UEProject\FortniteGame5.3\Plugins\UnrealSwissKnife\Intermediate\Build\Win64\x64\UnrealEditor\Development\UnrealSwissKnife\Default.rc2.res"
+/OUT:"E:\Workspace\UEProject\FortniteGame5.3\Plugins\UnrealSwissKnife\Intermediate\Build\Win64\x64\UnrealEditor\Development\UnrealSwissKnife\UnrealEditor-UnrealSwissKnife.lib"

@@ -1,13 +1,13 @@
 {
     "Version": "1.2",
     "Data": {
-        "Source": "e:\\unrealproject\\contentexamples53\\plugins\\unrealswissknife\\intermediate\\build\\win64\\x64\\unrealeditor\\development\\hlsl\\module.hlsl.cpp",
+        "Source": "e:\\workspace\\ueproject\\fortnitegame5.3\\plugins\\unrealswissknife\\intermediate\\build\\win64\\x64\\unrealeditor\\development\\hlsl\\module.hlsl.cpp",
         "ProvidedModule": "",
-        "PCH": "e:\\unrealproject\\contentexamples53\\intermediate\\build\\win64\\x64\\contentexamples53editor\\development\\engine\\sharedpch.engine.cpp20.inclorderunreal5_0.h.pch",
+        "PCH": "e:\\workspace\\ueproject\\fortnitegame5.3\\intermediate\\build\\win64\\x64\\fortniteeditor\\development\\engine\\sharedpch.engine.cpp17.inclorderunreal5_0.h.pch",
         "Includes": [
-            "e:\\unrealproject\\contentexamples53\\plugins\\unrealswissknife\\intermediate\\build\\win64\\x64\\unrealeditor\\development\\hlsl\\definitions.hlsl.h",
-            "e:\\unrealproject\\contentexamples53\\plugins\\unrealswissknife\\source\\hlsl\\private\\hlsl.cpp",
-            "e:\\unrealproject\\contentexamples53\\plugins\\unrealswissknife\\source\\hlsl\\public\\hlsl.h"
+            "e:\\workspace\\ueproject\\fortnitegame5.3\\plugins\\unrealswissknife\\intermediate\\build\\win64\\x64\\unrealeditor\\development\\hlsl\\definitions.hlsl.h",
+            "e:\\workspace\\ueproject\\fortnitegame5.3\\plugins\\unrealswissknife\\source\\hlsl\\private\\hlsl.cpp",
+            "e:\\workspace\\ueproject\\fortnitegame5.3\\plugins\\unrealswissknife\\source\\hlsl\\public\\hlsl.h"
         ],
         "ImportedModules": [],
         "ImportedHeaderUnits": []
