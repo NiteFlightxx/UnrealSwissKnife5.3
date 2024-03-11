@@ -1,0 +1,44 @@
+// HLSL Ray Marching 示例，用于模拟具有内部星星的龙珠样式球体
+// 注意：这是一个概念性的示例，可能需要调整以适合特定需求
+
+struct rayMarching(float3 rayOrigin, float3 rayDirection, out float hitDistance) {
+	float distanceTraveled = 0.0;
+	const float maxDistance = 100.0;
+	const int maxSteps = 100;
+	hitDistance = -1.0;
+
+	for(int i = 0; i < maxSteps; i++) {
+		float3 currentPoint = rayOrigin + distanceTraveled * rayDirection;
+		// 球体SDF，定义球体中心和半径
+		float sphereDistance = length(currentPoint - float3(0,0,0)) - 1.0; // 假设球心在原点，半径为1
+        
+		if(sphereDistance < 0.001) {
+			hitDistance = distanceTraveled;
+			return currentPoint; // 返回交点位置
+		}
+
+		distanceTraveled += sphereDistance;
+
+		if(distanceTraveled > maxDistance) break; // 超出最大距离，结束循环
+	}
+
+	return float3(0,0,0); // 未击中任何物体
+}
+
+// 计算内部星星的逻辑（简化表示）
+struct starPattern(float3 point) {
+	
+	return 0.5; // 假设星星模式在某些条件下返回的值
+}
+
+
+	float hitDistance;
+	float3 hitPoint = rayMarching(rayOrigin, rayDirection, hitDistance);
+	if(hitDistance > 0) {
+		
+		float pattern = starPattern(hitPoint);
+		
+		return float4(pattern, pattern, pattern, 1.0);
+	}
+
+	return float4(0, 0, 0, 0);
