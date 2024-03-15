@@ -8,7 +8,7 @@
 #include "Widgets/Layout/SExpandableArea.h"
 #include "Widgets/Layout/SScrollBox.h"
 
-#include "AnimToTexture/Public/AnimToTextureDataAsset.h"
+//#include "AnimToTexture/Public/AnimToTextureDataAsset.h"
 #define LOCTEXT_NAMESPACE "FSlatePluginModule"
 
 
@@ -178,7 +178,7 @@ void SAnimTextureDetails::Construct(const FArguments& InArgs)
 			 [
 			  SNew(SObjectPropertyEntryBox)
 			 .OnObjectChanged(this,&SAnimTextureDetails::OnAssetSelected)
-			 .AllowedClass(UAnimToTextureDataAsset::StaticClass())
+//			 .AllowedClass(UAnimToTextureDataAsset::StaticClass())
 			]
 			
 			 + SVerticalBox::Slot()

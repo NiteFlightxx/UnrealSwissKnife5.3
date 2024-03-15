@@ -65,6 +65,7 @@
 "..\Intermediate\Build\Win64\x64\UnrealEditor\Development\ToolWidgets\UnrealEditor-ToolWidgets.lib"
 "..\Plugins\Developer\PluginUtils\Intermediate\Build\Win64\x64\UnrealEditor\Development\PluginUtils\UnrealEditor-PluginUtils.lib"
 "..\Intermediate\Build\Win64\x64\UnrealEditor\Development\PropertyEditor\UnrealEditor-PropertyEditor.lib"
+"..\Plugins\Experimental\AnimToTexture\Intermediate\Build\Win64\x64\UnrealEditor\Development\AnimToTexture\UnrealEditor-AnimToTexture.lib"
 "..\Intermediate\Build\Win64\x64\UnrealEditor\Development\Core\UnrealEditor-Core.lib"
 "..\Intermediate\Build\Win64\x64\UnrealEditor\Development\Json\UnrealEditor-Json.lib"
 "..\Intermediate\Build\Win64\x64\UnrealEditor\Development\JsonUtilities\UnrealEditor-JsonUtilities.lib"
