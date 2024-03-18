@@ -1,0 +1,34 @@
+﻿// Copyright Epic Games, Inc. All Rights Reserved.
+
+#include "/Engine/Private/Common.ush"
+#include "/Engine/Private/DeferredShadingCommon.ush"
+#include "/Engine/Private/SceneTexturesCommon.ush"
+#include "/Engine/Private/ScreenPass.ush"
+#include "/Engine/Private/SceneTextureParameters.ush"
+#include "/Engine/Private/SceneData.ush"
+#include "/Engine/Plugins/Experimental/ColorCorrectRegionsShaders/Private/ColorCorrectRegionsCommon.usf"
+
+
+   float2 UVs=GetScencTextureUV(Parameters);
+   float2 TextureSize=GetSceneTextureViewSize(PPI_CustomDepth).xy;
+   float DepthCenter=SceneTextureLookup(UVs,PPI_CustomDepth,false).r;
+   float RealThickness=Thickness/SceneTextureLookup(UVs,PPI_CustomDepth,false).r/10000.f；
+   for(int y = -1; y<=1;y++)
+   {
+        for(int x = -1; x <= 1 ; x++ )
+        {
+            if(x==0&&y==0){continue;}
+            
+            float2 Offset = float2(x,y)*RealThickness*(1.f/TextureSize);
+            float DepthSample = (UVs,PPI_CustomDepth,false).r;
+            float DepthDiff = abs(DepthCenter-DepthSample);
+            
+            if((DepthDiff>DepthThreshold))
+            {
+                return StrokeColor;
+            }
+        }
+   }
+      return SceneTextureLookup(UVs,PPI_CustomDepth,false);
+ 
+

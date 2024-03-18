@@ -1,0 +1,30 @@
+﻿#include "Rectangle.ush"
+
+Utilities UtilitiesRef;
+float Ratio = 1.0;
+float2 Stroke;
+float2 Distance;
+float2 Shape; 
+float2 BoxUVs;
+float2 CornerRadius ;
+
+Stroke = Strokethickness * lerp(Size.x, Size.y, Dimensiontopickforstroke);
+
+CornerRadius=UtilitiesRef.MF_WeightedCorners(UV,Roundness);
+
+BoxUVs = abs(2 * (UV - 0.5));
+BoxUVs = BoxUVs - lerp(Size -Stroke, Size + Stroke, 0.5);
+BoxUVs = BoxUVs * Ratio;
+BoxUVs = BoxUVs + CornerRadius;
+
+Shape=max(BoxUVs.x,BoxUVs.y);
+Shape = min(Shape, 0.0);
+Shape+=length(max(BoxUVs,0.f));
+Shape-=CornerRadius;
+
+SDF=Shape;
+SDFOutLine=abs(Shape)-Stroke;
+OutLine=1-smoothstep(GlowMin,GlowMax,max(Shape,SDFOutLine));
+float2 Fill=1-smoothstep(GlowMin,GlowMax,Shape);
+
+return Fill;  

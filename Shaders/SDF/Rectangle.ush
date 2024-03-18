@@ -1,60 +1,31 @@
-﻿struct Utilities
-{
-    float2 MF_WeightedCorners(float2 UV,
-        float4 CornersValue=float4(0.2f,0.1f,0.3f,0.5f) )
-    {
-        float VerticalSplit;
-        float HorizontalSplit;
-        float2 LeftSide;
-        float2 RightSide;
-        float2 SplitQuads;
-        
-        VerticalSplit=saturate(ceil(UV)).x;
-        HorizontalSplit=saturate(ceil(UV)).y;
-        LeftSide=float2(CornersValue.x,CornersValue.y);
-        RightSide=float2(CornersValue.z,CornersValue.w);
-        
-        float TopQUads=lerp(LeftSide,RightSide,VerticalSplit).x;
-        float BottomQuads=lerp(LeftSide,RightSide,VerticalSplit).y;
+﻿
 
-        SplitQuads=lerp(TopQUads,BottomQuads,HorizontalSplit);
+struct Utilities
+{
+	float2 MF_WeightedCorners(float2 UV,
+		float4 CornersValue=float4(0.2f,0.1f,0.3f,0.5f) )
+	{
+		float VerticalSplit;
+		float HorizontalSplit;
+		float2 LeftSide;
+		float2 RightSide;
+		float2 SplitQuads;
         
-        return SplitQuads;
-    }
+		VerticalSplit=saturate(ceil(UV)).x;
+		HorizontalSplit=saturate(ceil(UV)).y;
+		LeftSide=float2(CornersValue.x,CornersValue.y);
+		RightSide=float2(CornersValue.z,CornersValue.w);
+        
+		float TopQUads=lerp(LeftSide,RightSide,VerticalSplit).x;
+		float BottomQuads=lerp(LeftSide,RightSide,VerticalSplit).y;
+
+		SplitQuads=lerp(TopQUads,BottomQuads,HorizontalSplit);
+        
+		return SplitQuads;
+	}
 };
 
-{
-    
-    Utilities UtilitiesRef;
 
-    float Ratio = 1.0;
-    float2 Stroke;
-    float2 Distance;
-    float2 Shape; 
-    float2 BoxUVs;
-    float2 CornerRadius ;
-
-    Stroke = Strokethickness * lerp(Size.x, Size.y, Dimensiontopickforstroke);
-
-    CornerRadius= UtilitiesRef.MF_WeightedCorners(UV,Roundness);
-
-    BoxUVs= abs(2 * (UV - 0.5));
-    BoxUVs = BoxUVs - lerp(Size -Stroke, Size + Stroke, 0.5);
-    BoxUVs = BoxUVs * Ratio;
-    BoxUVs = BoxUVs + CornerRadius;
-
-    Shape=max(BoxUVs.x,BoxUVs.y);
-    Shape = min(Shape, 0.0);
-    Shape+=length(max(BoxUVs,0.f));
-    Shape-=CornerRadius;
-
-    SDF=Shape;
-    SDFOutLine=abs(Shape)-Stroke;
-    OutLine=1-smoothstep(GlowMin,GlowMax,max(Shape,SDFOutLine));
-    float2 Fill=1-smoothstep(GlowMin,GlowMax,Shape);
-
-    return Fill;  
-}
 
 
 
