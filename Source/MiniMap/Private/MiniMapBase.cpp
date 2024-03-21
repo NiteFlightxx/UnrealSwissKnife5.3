@@ -48,9 +48,6 @@ MaximumY(0.f)
 	CaptureComponent=CreateDefaultSubobject<USceneCaptureComponent2D>(TEXT("CaptureComponent"));
 	CaptureComponent->SetupAttachment(CameraSpringArm);
 	CaptureComponent->ProjectionType=ECameraProjectionMode::Orthographic;
-	
-	
-	
 }
 
 // Called when the game starts or when spawned

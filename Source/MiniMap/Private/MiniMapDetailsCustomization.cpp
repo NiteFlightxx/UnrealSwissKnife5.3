@@ -1,7 +1,9 @@
 // Copyright Epic Games, Inc. All Rights Reserved.
 
-
+#if WITH_EDITOR
 #include "MiniMapDetailsCustomization.h"
+#endif
+
 #include "AssetToolsModule.h"
 #include "Components/RuntimeVirtualTextureComponent.h"
 #include "DetailCategoryBuilder.h"
@@ -203,6 +205,5 @@ void FUMiniMapComponentDetailsCustomization::CustomizeDetails(IDetailLayoutBuild
 		.IsEnabled(this, &FUMiniMapComponentDetailsCustomization::IsSetBoundsEnabled)
 	];
 }
-
 
 #undef LOCTEXT_NAMESPACE

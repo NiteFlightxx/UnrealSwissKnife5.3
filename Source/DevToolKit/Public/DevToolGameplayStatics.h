@@ -22,7 +22,9 @@ class DEVTOOLKIT_API UDevToolGameplayStatics : public UBlueprintFunctionLibrary
 
 	static float CalculateActivePixelPercentage(FTexture2DRHIRef TextureRHI, int32 TextureWidth, int32 TextureHeight);
 
-	
+	/*
+	 * Bytes Begin
+	 */
 	UFUNCTION(BlueprintCallable,Category=" UDevToolGameplayStatics|Serial")
 	static int32 BytesToIntegerInRange(const TArray<uint8>& Bytes, int32 BeginIndex, int32 EndIndex,bool isDataBigEndian );
 
@@ -32,6 +34,10 @@ class DEVTOOLKIT_API UDevToolGameplayStatics : public UBlueprintFunctionLibrary
 	UFUNCTION(BlueprintPure,Category=" UDevToolGameplayStatics|Serial")
 	static float BytesToFloatInRangePure(const TArray<uint8>& Bytes, int32 BeginIndex, int32 EndIndex, bool bIsLittleEndian);
 
+	/*
+	 * Bytes End
+	 */
+	
 	UFUNCTION(BlueprintCallable,Category=" UDevToolGameplayStatics")
 	static void  GetClosestPointsBetweenTwoComponents(UPrimitiveComponent* Comp1, UPrimitiveComponent* Comp2,FVector &PA,FVector&PB);
 
@@ -43,7 +49,7 @@ class DEVTOOLKIT_API UDevToolGameplayStatics : public UBlueprintFunctionLibrary
 
 	UFUNCTION(BlueprintCallable,Category=" UDevToolGameplayStatics|Pixel")
 	static float GetActivePixelPercentageFromTexture(UTexture2D* Texture,float threshold);
-
+	
 	UFUNCTION(BlueprintCallable,BlueprintPure,Category=" UDevToolGameplayStatics|Runtime")
 	static FString GetMachineID();
 };

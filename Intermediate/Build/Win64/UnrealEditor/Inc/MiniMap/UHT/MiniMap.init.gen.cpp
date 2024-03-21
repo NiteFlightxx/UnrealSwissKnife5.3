@@ -24,7 +24,7 @@ void EmptyLinkFunctionForGeneratedCodeMiniMap_init() {}
 				"/Script/MiniMap",
 				SingletonFuncArray,
 				UE_ARRAY_COUNT(SingletonFuncArray),
-				PKG_CompiledIn | 0x00000000,
+				PKG_CompiledIn | 0x00000040,
 				0x18271275,
 				0xEC88C91C,
 				METADATA_PARAMS(0, nullptr)

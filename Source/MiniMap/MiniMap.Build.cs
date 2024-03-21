@@ -36,26 +36,35 @@ public class MiniMap : ModuleRules
 			{
 				"AppFramework",
 				"AssetRegistry",
-				"ContentBrowser",
 				"Core",
 				"CoreUObject",
-				"EditorFramework",
 				"Engine",
 				"InputCore",
 				"Landscape",
-				"MaterialEditor",
-				"PlacementMode",
-				"PropertyEditor",
 				"RenderCore",
 				"Renderer",
 				"RHI",
 				"Slate",
 				"SlateCore",
-				"UnrealEd",
 				// ... add private dependencies that you statically link with here ...	
 			}
 			);
 		
+		if (Target.Type == TargetType.Editor)
+		{
+			PrivateDependencyModuleNames.AddRange(
+				new string[]
+				{
+				"UnrealEd",	
+				"PropertyEditor",
+				//"ContentBrowser",
+				"EditorFramework",
+				"PlacementMode",
+				"MaterialEditor"
+				}
+				);
+		}
+
 		
 		DynamicallyLoadedModuleNames.AddRange(
 			new string[]
