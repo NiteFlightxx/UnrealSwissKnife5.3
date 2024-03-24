@@ -1,6 +1,4 @@
-﻿
-
-struct Utilities
+﻿struct Utilities
 {
 	float2 MF_WeightedCorners(float2 UV,
 		float4 CornersValue=float4(0.2f,0.1f,0.3f,0.5f) )

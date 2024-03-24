@@ -2,6 +2,7 @@
 
 
 #include "MiniMapSubsystem.h"
+#include "MiniMapItemIcon.h"
 
 const TArray<AMiniMapBase*>& UMiniMapSubsystem::GetMiniMapBaseArr() const
 {

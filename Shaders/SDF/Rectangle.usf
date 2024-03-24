@@ -1,30 +1,35 @@
-﻿#include "Rectangle.ush"
+﻿{
+#include "Rectangle.ush"
 
-Utilities UtilitiesRef;
-float Ratio = 1.0;
-float2 Stroke;
-float2 Distance;
-float2 Shape; 
-float2 BoxUVs;
-float2 CornerRadius ;
+	Utilities UtilitiesRef;
 
-Stroke = Strokethickness * lerp(Size.x, Size.y, Dimensiontopickforstroke);
+	float Ratio = 1.0;
+	float2 UV=Parameters.TexCoords[0];
+	float2 Stroke;
+	float2 Distance;
+	float2 Shape; 
+	float2 BoxUVs;
+	float2 CornerRadius ;
 
-CornerRadius=UtilitiesRef.MF_WeightedCorners(UV,Roundness);
+	Stroke = Strokethickness * lerp(Size.x, Size.y, Dimensiontopickforstroke);
 
-BoxUVs = abs(2 * (UV - 0.5));
-BoxUVs = BoxUVs - lerp(Size -Stroke, Size + Stroke, 0.5);
-BoxUVs = BoxUVs * Ratio;
-BoxUVs = BoxUVs + CornerRadius;
+	CornerRadius=UtilitiesRef.MF_WeightedCorners(UV,Roundness);
 
-Shape=max(BoxUVs.x,BoxUVs.y);
-Shape = min(Shape, 0.0);
-Shape+=length(max(BoxUVs,0.f));
-Shape-=CornerRadius;
+	BoxUVs = abs(2 * (UV - 0.5));
+	BoxUVs = BoxUVs - lerp(Size -Stroke, Size + Stroke, 0.5);
+	BoxUVs = BoxUVs * Ratio;
+	BoxUVs = BoxUVs + CornerRadius;
 
-SDF=Shape;
-SDFOutLine=abs(Shape)-Stroke;
-OutLine=1-smoothstep(GlowMin,GlowMax,max(Shape,SDFOutLine));
-float2 Fill=1-smoothstep(GlowMin,GlowMax,Shape);
+	Shape=max(BoxUVs.x,BoxUVs.y);
+	Shape = min(Shape, 0.0);
+	Shape+=length(max(BoxUVs,0.f));
+	Shape-=CornerRadius;
 
-return Fill;  
+	SDF=Shape;
+	SDFOutLine=abs(Shape)-Stroke;
+	OutLine=1-smoothstep(GlowMin,GlowMax,max(Shape,SDFOutLine));
+	float2 Fill=1-smoothstep(GlowMin,GlowMax,Shape);
+
+	return Fill;  
+
+}

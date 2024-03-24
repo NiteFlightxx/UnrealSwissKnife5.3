@@ -1,34 +1,24 @@
-﻿// Copyright Epic Games, Inc. All Rights Reserved.
+﻿
+float2 UVs = GetSceneTextureUV(Parameters);//这一行获取当前像素的UV坐标;
+float2 TextureSize = GetSceneTextureViewSize(PPI_CustomDepth).xy;//获取自定义深度纹理的尺寸（宽度和高度）。
+float DepthCenter = SceneTextureLookup(UVs, PPI_CustomDepth, false).r;//在自定义深度纹理中采样当前像素的深度值。
+float RealThickness = Thickness/100.f / (SceneTextureLookup(UVs, PPI_CustomDepth, false).r/10000.0 );/*计算实际轮廓线条的厚度，这里使用了一个缩放因子10000.0，
+																										为了适应特定的深度范围或纹理格式。*/
+for(int y = -1; y <= 1; y++)//开启一个垂直方向上的循环，从-1到1，这意味着它会检查当前像素的上下相邻像素。
+{
+	for(int x = -1; x <= 1; x++)//在水平方向上开启一个循环，从-1到1，这意味着它会检查当前像素的左右相邻像素。
+	{
+		if(x == 0 && y == 0){continue;}//如果是当前像素本身（即偏移量x和y都是0），则跳过不检查。
 
-#include "/Engine/Private/Common.ush"
-#include "/Engine/Private/DeferredShadingCommon.ush"
-#include "/Engine/Private/SceneTexturesCommon.ush"
-#include "/Engine/Private/ScreenPass.ush"
-#include "/Engine/Private/SceneTextureParameters.ush"
-#include "/Engine/Private/SceneData.ush"
-#include "/Engine/Plugins/Experimental/ColorCorrectRegionsShaders/Private/ColorCorrectRegionsCommon.usf"
+		float2 Offset = float2(x, y) * RealThickness * (1.0 / TextureSize);//计算出基于当前像素的UV坐标的偏移量，这个偏移量根据轮廓线的实际厚度和纹理尺寸来缩放。
+		float DepthSample = SceneTextureLookup(UVs + Offset,PPI_CustomDepth,false).r;//在自定义深度纹理中采样偏移后位置的深度值。
+		float DepthDiff = abs(DepthCenter - DepthSample);//计算当前像素的深度值和偏移像素深度值之间的差异的绝对值。
 
-
-   float2 UVs=GetScencTextureUV(Parameters);
-   float2 TextureSize=GetSceneTextureViewSize(PPI_CustomDepth).xy;
-   float DepthCenter=SceneTextureLookup(UVs,PPI_CustomDepth,false).r;
-   float RealThickness=Thickness/SceneTextureLookup(UVs,PPI_CustomDepth,false).r/10000.f；
-   for(int y = -1; y<=1;y++)
-   {
-        for(int x = -1; x <= 1 ; x++ )
-        {
-            if(x==0&&y==0){continue;}
-            
-            float2 Offset = float2(x,y)*RealThickness*(1.f/TextureSize);
-            float DepthSample = (UVs,PPI_CustomDepth,false).r;
-            float DepthDiff = abs(DepthCenter-DepthSample);
-            
-            if((DepthDiff>DepthThreshold))
-            {
-                return StrokeColor;
-            }
-        }
-   }
-      return SceneTextureLookup(UVs,PPI_CustomDepth,false);
- 
+		if(DepthDiff > DepthThreshold)//判断这个深度差异是否大于一个阈值。
+		{
+			return StrokeColor; //如果深度差异大于阈值，则函数返回定义的轮廓颜色。
+		}
+	}
+}
+return SceneTextureLookup(UVs, PPI_PostProcessInput0,false);//如果所有相邻像素的深度差异都没有超过阈值，则函数返回当前像素的颜色（即没有轮廓效果的原始场景颜色）。
 
