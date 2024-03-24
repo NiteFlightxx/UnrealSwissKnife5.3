@@ -1,0 +1,139 @@
+{
+
+float accumdens = 0;
+float transmittance = 1;
+float3 lightenergy = 0;
+Density *= StepSize;
+LightVector *= ShadowStepSize;
+ShadowDensity *= ShadowStepSize;
+float shadowthresh = -log(ShadowThreshold) / ShadowDensity;
+LocalCamVec = normalize( mul(Parameters.CameraVector, LWCToFloat3x3(GetPrimitiveData(Parameters).WorldToLocal))) * StepSize;
+
+for (int i = 0; i < MaxSteps; i++)
+{
+    float cursample = PseudoVolumeTexture(Tex, TexSampler, saturate(CurPos), XYFrames, NumFrames).r;
+
+    // float4 noisesample = Texture3DSample(NoiseTex, TexSampler, (CurPos*4)+NoiseOffset);
+    // cursample = max(noisesample.g*(5-cursample),0.0);
+    
+    if(cursample > 0.001)
+    {
+        float3 lpos = CurPos;
+        float shadowdist = 0;
+
+        for (int s = 0; s < ShadowSteps; s++)
+        {
+            lpos += LightVector;
+            float lsample = PseudoVolumeTexture(Tex, TexSampler, saturate(lpos), XYFrames, NumFrames).r;
+
+            float3 shadowboxtest = floor(0.5 + (abs(0.5 - lpos )));
+            float exithadowbox = shadowboxtest .x + shadowboxtest .y + shadowboxtest .z;
+
+            if(shadowdist > shadowthresh || exithadowbox >= 1) break;
+
+            shadowdist += lsample;
+        }
+
+        float3 dfpos = 2 * (CurPos - 0.5) * GetPrimitiveData(Parameters).LocalObjectBoundsMax.x;
+        dfpos = LWCToFloat(TransformLocalPositionToWorld(Parameters, dfpos)) - CameraPosWS;
+        float dftracedist = 1;
+        float dfshadow = 1;
+        float curdist = 0;
+        float DistanceAlongCone = 0;
+
+        for (int d = 0; d < DFSSteps; d++)
+        {
+            DistanceAlongCone += curdist;
+            curdist = GetDistanceToNearestSurfaceGlobal(dfpos);
+
+            float SphereSize = DistanceAlongCone * LightTangent;
+
+            dfshadow = min( saturate(curdist / SphereSize) , dfshadow);
+
+            dfpos.xyz += LightVectorWS * dftracedist * curdist;
+            dftracedist *= 1.0001;
+        }
+
+        cursample = 1 - exp(-cursample * Density);
+        lightenergy += exp(-shadowdist * ShadowDensity) * cursample * transmittance * LightColor * dfshadow;
+        transmittance *= 1-cursample;
+           
+        shadowdist = 0;
+
+        lpos = CurPos + float3(0.f,0.f,0.025);
+        float lsample=PseudoVolumeTexture(Tex,TexSampler,saturate(lpos),XYFrames,NumFrames).r;
+        shadowdist +=lsample;
+        lpos = CurPos + float3(0.f,0.f,0.05);
+        lsample=PseudoVolumeTexture(Tex,TexSampler,saturate(lpos),XYFrames,NumFrames).r;
+        shadowdist +=lsample;
+        lpos = CurPos + float3(0.f,0.f,0.15);
+        lsample=PseudoVolumeTexture(Tex,TexSampler,saturate(lpos),XYFrames,NumFrames).r;
+        shadowdist +=lsample;
+
+        lightenergy+=exp(-shadowdist*AmbientDensity)*cursample*SkyColor*transmittance;
+    }
+    CurPos += -LocalCamVec;
+    }
+////////////////////////////////////////////////////////////////
+    CurPos+=LocalCamVec*(1-FinalStepSize);
+    float cursample=PseudoVolumeTexture(Tex,TexSampler,saturate(CurPos),XYFrames,NumFrames).r;
+
+    if(cursample>0.001)
+    {
+        float3 lpos = CurPos;
+        float shadowdist = 0;
+        
+        for (int s = 0; s < ShadowSteps; s++)
+        {
+            lpos += LightVector;
+            float lsample = PseudoVolumeTexture(Tex, TexSampler, saturate(lpos), XYFrames, NumFrames).r;
+
+            float3 shadowboxtest = floor(0.5 + (abs(0.5 - lpos )));
+            float exithadowbox = shadowboxtest .x + shadowboxtest .y + shadowboxtest .z;
+
+            if(shadowdist > shadowthresh || exithadowbox >= 1) break;
+
+            shadowdist += lsample;
+        }
+        float3 dfpos = 2 * (CurPos - 0.5) * GetPrimitiveData(Parameters).LocalObjectBoundsMax.x;
+        dfpos = LWCToFloat(TransformLocalPositionToWorld(Parameters, dfpos)) - CameraPosWS;
+        float dftracedist = 1;
+        float dfshadow = 1;
+        float curdist = 0;
+        float DistanceAlongCone = 0;
+    
+    for (int d = 0; d < DFSSteps; d++)
+    {
+        DistanceAlongCone += curdist;
+        curdist = GetDistanceToNearestSurfaceGlobal(dfpos);
+
+        float SphereSize = DistanceAlongCone * LightTangent;
+
+        dfshadow = min( saturate(curdist / SphereSize) , dfshadow);
+
+        dfpos.xyz += LightVectorWS * dftracedist * curdist;
+        dftracedist *= 1.0001;
+    }
+
+    cursample = 1 - exp(-cursample * Density);
+    lightenergy += exp(-shadowdist * ShadowDensity) * cursample * transmittance * LightColor * dfshadow;
+    transmittance *= 1-cursample;
+           
+    shadowdist = 0;
+
+    lpos = CurPos + float3(0.f,0.f,0.025);
+    float lsample=PseudoVolumeTexture(Tex,TexSampler,saturate(lpos),XYFrames,NumFrames).r;
+    shadowdist +=lsample;
+    lpos = CurPos + float3(0.f,0.f,0.05);
+    lsample=PseudoVolumeTexture(Tex,TexSampler,saturate(lpos),XYFrames,NumFrames).r;
+    shadowdist +=lsample;
+    lpos = CurPos + float3(0.f,0.f,0.15);
+    lsample=PseudoVolumeTexture(Tex,TexSampler,saturate(lpos),XYFrames,NumFrames).r;
+    shadowdist +=lsample;
+
+    lightenergy+=exp(-shadowdist*AmbientDensity)*cursample*SkyColor*transmittance;
+//////////////////////////////////////////////////////////////////////////////
+    }
+    
+    return float4(lightenergy,transmittance);
+}

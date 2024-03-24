@@ -1,0 +1,19 @@
+{
+	float3 RayStep = viewDir * Spacing * -1; // 定义了一个名为RayStep的三维向量。
+	float4 InputTex = Texture2DSample(texObject, texObjectSampler, uv); // 采样2D纹理。
+	float3 Color = BaseColor; // 定义一个颜色变量。
+	for (int i =1; i < Tier; i++) // 开始一个循环，确保i=1时也执行。
+	{
+		if (InputTex.r > threshold && InputTex.g > threshold && InputTex.b > threshold) // 检查颜色通道。
+		{
+			float alpha = (float)(Tier - i) / (Tier); // 计算透明度，使其随着i减小而增加。
+			alpha = clamp(alpha, 0.f, 1.f); // 确保alpha值在0到1之间。
+			return float4(Color * alpha, alpha); // 返回一个带有透明度的四维向量。
+		}
+		uv += RayStep; // 更新uv坐标。
+
+		InputTex = Texture2DSample(texObject, texObjectSampler, uv.xy); // 采样2D纹理。
+	}
+
+	return float4(InputTex.rgb, 1.0); // 如果循环完成没有返回，则返回最后采样到的纹理值，且完全不透明。
+}
